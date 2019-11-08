@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+bool czysuma (int z_suma){
+          int suma=2;
+          int a;
+          int b;
+          int c;
+
+          while(c<suma){
+                c=a+b;
+                a=b;
+                b=c;
+                suma=suma+c;
+          if(suma==z_suma) return true;
+                }
+                return false;
+          }
+
+
+
+
+
+
+
+int main() {
+    cout << "podaj sume";
+    int z_suma;
+    cin >> z_suma;
+    czysuma(z_suma);
+    if(z_suma) cout <<"jest";
+    if(!z_suma) cout <<"nie";
+
+
+}
