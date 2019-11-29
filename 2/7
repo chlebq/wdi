@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+void x(int n)
+{
+    int min;
+    int i=2;
+    int at;
+    int bt;
+    while (i*i<n)
+    {
+        int tmp=n;
+        if(tmp%i==0)
+        {
+            tmp=tmp/i;
+            if(tmp-i<min)
+            {
+                min=tmp-i;
+                at=tmp;
+                bt=i;
+                break;
+
+            }
+        }
+    }
+    cout<<at<<"*"<<bt;
+
+
+
+
+}
+
+int main()
+{
+    cout <<"podaj liczbe "<<endl;
+    int liczba;
+    cin >>liczba;
+    x(liczba);
+
+
+
+
+
+
+
+
+
+}
