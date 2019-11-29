@@ -19,10 +19,11 @@ void x(int n)
                 min=tmp-i;
                 at=tmp;
                 bt=i;
-                break;
+
 
             }
         }
+        i++;
     }
     cout<<at<<"*"<<bt;
 
@@ -38,12 +39,3 @@ int main()
     cin >>liczba;
     x(liczba);
 
-
-
-
-
-
-
-
-
-}
