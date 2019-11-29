@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+int ntywyraz(int n);
+int main()
+{
+    int liczba;
+    int n;
+    bool tak;
+    cout <<"podaj liczbę";
+    cin >>liczba;
+    tak=false;
+    for (int i=1;i<n;i++)
+    {
+        if(liczba%ntywyraz(i)==0)
+        {
+            cout <<"jest";
+            tak=true;
+        }
+        }
+         if (!tak)cout<<"nie jest";
+
+
+    }
+
+
+
+
+
+int ntywyraz(int n)
+{
+    int k;
+    k=(n*n)+n+1;
+    return k;
+
+
+
+}
