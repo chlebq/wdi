@@ -1,0 +1,56 @@
+#include <iostream>
+
+using namespace std;
+const int N=5;
+void sort( int tab[], int size )
+{
+    int temp, j;
+
+    for( int i = 1; i < size; i++ )
+    {
+        temp = tab[ i ];
+
+        for( j = i - 1; j >= 0 && tab[ j ] > temp; j-- )
+             tab[ j + 1 ] = tab[ j ];
+
+        tab[ j + 1 ] = temp;
+    }
+}
+
+
+int main()
+{
+    cout << "Podaj dwie liczby" << endl;
+    int a ;
+
+
+    int t[N];
+    int t2[N];
+    for(int i=0;i<=N-1;i++)
+    {
+        cin >>a;
+        t[i]=a;
+    }
+    for(int j=0;j<=N-1;j++)
+    {
+        cin >>a;
+        t2[j]=a;
+    }
+    sort(t,N);
+    sort (t2,N);
+    bool xd=true;
+    for(int k=0;k<=N-1;k++)
+    {
+        if(!(t[k]==t2[k]))
+        {
+            xd=false;
+
+        }
+
+
+
+
+}
+if(xd)cout<<"jest";
+if(!xd)cout <<"nie jest";
+}
