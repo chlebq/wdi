@@ -1,0 +1,62 @@
+#include <iostream>
+
+using namespace std;
+const int N=3;
+bool czy_pierwsza(int liczba)
+{
+    if (liczba==2)return true;
+    if(liczba<=1)return false;
+    for(int i=2;i*i<liczba;i++)
+    {
+        if(liczba%i==0)return false;
+    }
+     return true;
+}
+bool ruchymozliwe(int t[N][N],int w,int k,int suma)//ruchymozliwe(t,0,0,0)
+{
+
+    if (w>N-1||w<0||k>N-1||k<0)return false;
+    suma+=t[w][k];
+    if(czy_pierwsza(suma))return true;
+    if(ruchymozliwe(t,w+2,k-1,suma+t[w+2][k-1])&&czy_pierwsza(suma))return true;
+    if(ruchymozliwe(t,w+2,k+1,suma+t[w+2][k+1])&&czy_pierwsza(suma))return true;
+    if(ruchymozliwe(t,w-2,k+1,suma+t[w-2][k+1])&&czy_pierwsza(suma))return true;
+    if(ruchymozliwe(t,w-2,k-1,suma+t[w-2][k-1])&&czy_pierwsza(suma))return true;
+    if(ruchymozliwe(t,w+1,k-2,suma+t[w+1][k-2])&&czy_pierwsza(suma))return true;
+    if(ruchymozliwe(t,w+1,k+2,suma+t[w+1][k+2])&&czy_pierwsza(suma))return true;
+    if(ruchymozliwe(t,w-1,k-2,suma+t[w-1][k-2])&&czy_pierwsza(suma))return true;
+    if(ruchymozliwe(t,w-1,k+2,suma+t[w-1][k+2])&&czy_pierwsza(suma))return true;
+    return false;
+}
+bool lecimypotablicy(int t[N][N])
+{
+    for(int i=0;i<N;i++)
+    {
+        for(int j=0;j<N;j++)
+            if(ruchymozliwe(t,i,j,0)) return true;
+    }
+    return false;
+}
+bool zadanie(int t[N][N])
+{
+    lecimypotablicy(t);
+}
+
+int main()
+{
+    int t[N][N];
+    for (int w=0;w<N;w++)
+    {
+        for(int k=0;k<N;k++)
+        {
+            cin>>t[w][k];
+        }
+    }
+    if(zadanie(t))cout<<"zajebioza";
+    if(!zadanie(t))cout<<"chujoza";
+
+
+
+
+
+}
