@@ -1,0 +1,119 @@
+#include <iostream>
+
+using namespace std;
+
+
+
+struct NODE
+{
+    int v;
+    int key;
+    int *next;
+    int *prev;
+};
+void init(NODE *&tab);
+int value(NODE *tab, int n);
+void set (NODE *&tab, int n,int value);
+ 
+int main()
+{
+    cout << "Hello world!" << endl;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+void init(NODE *&tab)
+{
+	if (tab == NULL)
+	{
+		tab = new NODE();
+	}
+	return;
+}
+
+int value(NODE *tab, int n)
+{
+    NODE *temp= tab;
+    while (temp!=NULL&&tab->key<n)
+    {
+        temp=temp->next;
+    }
+    if (temp == NULL || temp->key > k) return -1;
+	else return temp->value;
+}
+
+
+
+void set (NODE *&tab, int n,int value)
+{
+    if (tab!=nullptr)
+    {
+        NODE *temp=tab;
+        while (true)
+        {
+            
+            if(temp->key == k)
+            {
+                temp->v=value;
+            }
+            else
+            {
+                if(temp->key>n)
+                {
+                   NODE *el = new NODE();
+					el->v = value;
+					el->key = n;
+					el->prev = temp->prev;
+					el->next = temp;
+					temp->prev->next = el;
+					temp->prev = el;
+					return; 
+                    
+                    
+                }
+                else
+                {
+                    if(temp->next==nullptr)
+                    {
+                        NODE *el = new NODE();
+						el->v = value;
+						el->key = n;
+						el->prev = temp;
+						el->next = NULL;
+						temp->next = el;
+						return;
+                    }
+                    else
+                    {
+                        temp=temp->next;
+                    }
+                }
+                
+                
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+}
+
+
